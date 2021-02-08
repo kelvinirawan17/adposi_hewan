@@ -1,9 +1,12 @@
 import 'dart:ui';
 import 'package:adopsi_hewan/home_screen/home_screen.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 
 import './register.dart';
 import './lupapassword.dart';
 import 'package:flutter/material.dart';
+
+const testDevices = "ca-app-pub-7469030649420320~3171622899";
 
 class Login extends StatefulWidget {
   @override
@@ -12,9 +15,19 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   bool _obscureText = true;
-
+  static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+      testDevices: testDevices != null ? <String>['testDevices'] : null,
+      keywords: <String>['Book', 'Game'],
+      nonPersonalizedAds: true);
   // ignore: unused_field
   String _password;
+  RewardedVideoAd _rewardedVideoAd = RewardedVideoAd.instance;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FirebaseAdMob.instance.initialize(appId: FirebaseAdMob.testAppId);
+  }
 
   // Toggles the password show status
   void _toggle() {
@@ -211,6 +224,10 @@ class _LoginState extends State<Login> {
                       child: InkWell(
                         splashColor: Colors.white,
                         onTap: () {
+                          _rewardedVideoAd.load(
+                              adUnitId: RewardedVideoAd.testAdUnitId,
+                              targetingInfo: targetingInfo);
+                          _rewardedVideoAd.show();
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => Register()),

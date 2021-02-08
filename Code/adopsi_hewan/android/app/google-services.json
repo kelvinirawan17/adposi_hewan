@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "657909501447",
+    "project_id": "adopsi-hewan",
+    "storage_bucket": "adopsi-hewan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657909501447:android:789275bfc132633c8824a2",
+        "android_client_info": {
+          "package_name": "com.example.adopsi_hewan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "657909501447-flughm8kd5gv73b44k71jmmnpvgo1muv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh7DzxeqtaAX0uPx07YG7WpMRyMYax4g4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "657909501447-flughm8kd5gv73b44k71jmmnpvgo1muv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

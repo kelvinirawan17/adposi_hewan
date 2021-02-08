@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import '../home_screen/home_screen.dart';
 import 'package:http/http.dart' as http;
@@ -12,7 +13,7 @@ class Profile_screen extends StatefulWidget {
 
 class _Profile_screen extends State<Profile_screen> {
   Future<Profile> myProfile;
-
+  BannerAd _bannerAd;
   @override
   void initState() {
     super.initState();
@@ -21,6 +22,7 @@ class _Profile_screen extends State<Profile_screen> {
 
   @override
   Widget build(BuildContext context) {
+    _bannerAd = null;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -246,6 +248,7 @@ class _Profile_screen extends State<Profile_screen> {
 }
 
 Future<Profile> fetchProfile() async {
-  final response = await http.get('http://10.0.2.2/adopsi_hewan/profile.php');
+  final response =
+      await http.get('http://192.168.40.110/adopsi_hewan/profile.php');
   return Profile.fromJson(jsonDecode(response.body));
 }
